@@ -1,0 +1,28 @@
+---
+title: Miney Docs
+description: Start here for Miney site and product documentation.
+---
+
+## Overview
+
+Miney Site combines a public landing page with a Fumadocs-powered documentation area.
+
+The current deployment target is Cloudflare Pages static hosting. The build must remain compatible
+with static export, so documentation content is authored as local MDX and rendered at build time.
+
+## Project shape
+
+- `app/page.tsx`: landing page
+- `app/docs/[[...slug]]/page.tsx`: static documentation route
+- `content/docs`: MDX documentation content
+- `source.config.ts`: Fumadocs MDX source configuration
+
+## Static constraints
+
+Avoid server-only features in this project:
+
+- API routes
+- Middleware
+- Server actions
+- Request-time data fetching
+- Runtime image optimization

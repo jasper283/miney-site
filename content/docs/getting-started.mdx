@@ -1,0 +1,36 @@
+---
+title: Getting Started
+description: Run the Miney site locally and add documentation pages.
+---
+
+## Local development
+
+Install dependencies and start the Next.js dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+The landing page is available at `/` and the documentation starts at `/docs`.
+
+## Add a page
+
+Create a new `.mdx` file in `content/docs`:
+
+```mdx
+---
+title: New Guide
+description: A short summary for metadata and navigation.
+---
+
+## Guide content
+
+Write the guide in Markdown or MDX.
+```
+
+Then add the file name to `content/docs/meta.json` if you want to control sidebar order.
+
+## Update navigation
+
+Shared navigation options live in `lib/layout.shared.tsx`.
