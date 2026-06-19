@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
+import { useRef, useState } from 'react'
 
 export function NavLinks() {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -10,9 +10,10 @@ export function NavLinks() {
 
   return [
     ['Features', '/#features'],
+    ['Docs', '/docs'],
     ['Reviews', '/#reviews'],
     ['Pricing', '/#pricing'],
-    ['FAQs', '/#faqs'],
+    // ['FAQs', '/#faqs'],
   ].map(([label, href], index) => (
     <Link
       key={label}

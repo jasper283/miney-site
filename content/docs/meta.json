@@ -1,4 +1,8 @@
 {
   "title": "Miney",
-  "pages": ["index", "getting-started", "deployment"]
+  "pages": [
+    "index",
+    "privacy",
+    "terms"
+  ]
 }
