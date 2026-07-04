@@ -2,44 +2,45 @@ import { useId } from 'react'
 
 import { Container } from '@/components/Container'
 
-const features = [
-  {
-    name: 'Track every amount',
-    description:
-      'Record small daily spending and larger income events with the same clean flow.',
-    icon: DeviceArrowIcon,
-  },
-  {
-    name: 'Build better budgets',
-    description:
-      'Create category limits and understand how much room is left this month.',
-    icon: DeviceCardsIcon,
-  },
-  {
-    name: 'See trends in real time',
-    description:
-      'Watch spending, income, and balance patterns update as you add records.',
-    icon: DeviceClockIcon,
-  },
-  {
-    name: 'Keep routines consistent',
-    description:
-      'Use reminders and recurring entries to reduce manual finance chores.',
-    icon: DeviceListIcon,
-  },
-  {
-    name: 'Private and controlled',
-    description:
-      'Keep personal money details organized in a focused app built around clarity.',
-    icon: DeviceLockIcon,
-  },
-  {
-    name: 'Asset tracking',
-    description:
-      'Follow cash, cards, savings, and other balances from a single overview.',
-    icon: DeviceChartIcon,
-  },
-]
+type IconComponent = React.ComponentType<React.ComponentPropsWithoutRef<'svg'>>
+
+type SecondaryFeaturesCopy = {
+  ariaLabel: string
+  title: string
+  description: string
+  features: Array<{
+    id: string
+    name: string
+    description: string
+  }>
+}
+
+type SecondaryFeature = SecondaryFeaturesCopy['features'][number] & {
+  icon: IconComponent
+}
+
+const secondaryFeatureIcons: Record<string, IconComponent> = {
+  amounts: DeviceArrowIcon,
+  budgeting: DeviceCardsIcon,
+  trends: DeviceClockIcon,
+  routines: DeviceListIcon,
+  curreny: DeviceCurrencyIcon,
+  'cloud-sync': DeviceCloudSyncIcon,
+  privacy: DeviceLockIcon,
+  'asset-tracking': DeviceChartIcon,
+}
+
+function getSecondaryFeatures(copy: SecondaryFeaturesCopy): SecondaryFeature[] {
+  return copy.features.flatMap((feature) => {
+    let icon = secondaryFeatureIcons[feature.id]
+
+    if (!icon) {
+      return []
+    }
+
+    return [{ ...feature, icon }]
+  })
+}
 
 function DeviceArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -140,6 +141,64 @@ function DeviceListIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function DeviceCurrencyIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 0a4 4 0 00-4 4v24a4 4 0 004 4h14a4 4 0 004-4V4a4 4 0 00-4-4H9zm0 2a2 2 0 00-2 2v24a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2h-1.382a1 1 0 00-.894.553l-.448.894a1 1 0 01-.894.553h-6.764a1 1 0 01-.894-.553l-.448-.894A1 1 0 0010.382 2H9z"
+        fill="#737373"
+      />
+      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x={8}
+        y={8}
+        width={16}
+        height={16}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#000000"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1={12} y1={1} x2={12} y2={23} />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    </svg>
+  )
+}
+
+function DeviceCloudSyncIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
+      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 4a4 4 0 014-4h14a4 4 0 014 4v10h-2V4a2 2 0 00-2-2h-1.382a1 1 0 00-.894.553l-.448.894a1 1 0 01-.894.553h-6.764a1 1 0 01-.894-.553l-.448-.894A1 1 0 0010.382 2H9a2 2 0 00-2 2v24a2 2 0 002 2h5v2H9a4 4 0 01-4-4V4z"
+        fill="#737373"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 18a5 5 0 00-4.58 3H16a4 4 0 000 8h10a4 4 0 00.7-7.94A6 6 0 0021 18z"
+        fill="#171717"
+      />
+      <path
+        d="M19 24h5m0 0l-2-2m2 2l-2 2"
+        fill="none"
+        stroke="#A3A3A3"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function DeviceLockIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
@@ -186,22 +245,25 @@ function DeviceChartIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export function SecondaryFeatures() {
+export function SecondaryFeatures({
+  copy,
+}: {
+  copy: SecondaryFeaturesCopy
+}) {
+  let features = getSecondaryFeatures(copy)
+
   return (
     <section
       id="secondary-features"
-      aria-label="Features for tracking budgets and assets"
+      aria-label={copy.ariaLabel}
       className="py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-medium tracking-tight text-gray-900">
-            A calmer way to follow your monthly finances.
+            {copy.title}
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Miney helps you connect everyday spending with budgets and assets,
-            so personal finance stays readable week after week.
-          </p>
+          <p className="mt-2 text-lg text-gray-600">{copy.description}</p>
         </div>
         <ul
           role="list"
@@ -209,7 +271,7 @@ export function SecondaryFeatures() {
         >
           {features.map((feature) => (
             <li
-              key={feature.name}
+              key={feature.id}
               className="rounded-2xl border border-gray-200 p-8"
             >
               <feature.icon className="h-8 w-8" />

@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "title": "Manage your money with less effort.",
+    "description": "Miney helps you track spending, income, budgets, and assets in a clean app that makes everyday finance feel simple.",
+    "screenshotAlt": "Miney app dashboard",
+    "technologyStackLabel": "Built with a cutting-edge modern technology stack",
+    "technologyLogos": [
+      {
+        "id": "cloudflare",
+        "name": "Cloudflare"
+      },
+      {
+        "id": "neon",
+        "name": "Neon"
+      },
+      {
+        "id": "firebase",
+        "name": "Firebase"
+      },
+      {
+        "id": "resend",
+        "name": "Resend"
+      },
+      {
+        "id": "better-auth",
+        "name": "Better Auth"
+      }
+    ]
+  },
+  "primaryFeatures": {
+    "ariaLabel": "Features for managing personal finance",
+    "title": "Everything you need to understand your money.",
+    "description": "Miney keeps daily tracking, budgets, and assets in one focused workflow so you can see what changed and what needs attention.",
+    "slideLabel": "Go to slide",
+    "features": [
+      {
+        "id": "records",
+        "name": "Log Your Way",
+        "description": "Log an expense with just an amount and category, or add notes, photos, multiple currencies, taxes, discounts, linked accounts, and other optional details whenever you need.",
+        "screenAlt": "Miney add record screen"
+      },
+      {
+        "id": "budgets",
+        "name": "Flexible Budgets",
+        "description": "Create budgets for categories or total spending with custom periods, flexible start dates, rollover, and detailed budget history.",
+        "screenAlt": "Miney budget tracking screen"
+      },
+      {
+        "id": "assets",
+        "name": "All Your Assets",
+        "description": "Track cash, bank accounts, savings, investments, and credit cards in one place, with billing cycles and payment reminders built in.",
+        "screenAlt": "Miney asset overview screen"
+      }
+    ]
+  },
+  "secondaryFeatures": {
+    "ariaLabel": "Features for tracking budgets and assets",
+    "title": "A calmer way to follow your monthly finances.",
+    "description": "Miney helps you connect everyday spending with budgets and assets, so personal finance stays readable week after week.",
+    "features": [
+      {
+        "id": "trends",
+        "name": "Powerful Insights",
+        "description": "Explore spending with trend charts, category breakdowns, flexible time ranges, and powerful filters for books, accounts, and more."
+      },
+      {
+        "id": "curreny",
+        "name": "Multi-Currency",
+        "description": "Support for over 166 currencies with automatic exchange rates, so your finances stay accurate wherever you spend."
+      },
+      {
+        "id": "cloud-sync",
+        "name": "Cloud Sync",
+        "description": "Your data stays securely synced across devices, so you can pick up exactly where you left off."
+      },
+      {
+        "id": "privacy",
+        "name": "Private and controlled",
+        "description": "Keep personal money details organized in a focused app built around clarity."
+      },
+      {
+        "id": "asset-tracking",
+        "name": "Asset tracking",
+        "description": "Follow cash, cards, savings, and other balances from a single overview."
+      },
+      {
+        "id": "routines",
+        "name": "Keep routines consistent",
+        "description": "Use reminders and recurring entries to reduce manual finance chores. (Coming soon)"
+      }
+    ]
+  }
+}

@@ -39,7 +39,7 @@ const faqs = [
     {
       question: 'How did you get this on the App Store?',
       answer:
-        'Miney is being built as a focused mobile app. App Store and Play Store links can be connected when your release is ready.',
+        'Miney is available on the App Store for iPhone users. Android availability will be announced when it is ready.',
     },
     {
       question: 'Can I export my data?',

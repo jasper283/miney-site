@@ -1,7 +1,7 @@
-import clsx from 'clsx'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { useId } from 'react'
 
+import { AppStoreLink } from '@/components/AppStoreLink'
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
 import heroScreenshot from '@/images/hero.png'
@@ -11,13 +11,27 @@ import logoFirebase from '@/images/logos/firebase.png'
 import logoNeon from '@/images/logos/neon.png'
 import logoResend from '@/images/logos/resend.png'
 
-const technologyLogos = [
-  { name: 'Cloudflare', logo: logoCloudflare, className: 'h-8' },
-  { name: 'Neon', logo: logoNeon, className: 'h-7' },
-  { name: 'Firebase', logo: logoFirebase, className: 'h-8' },
-  { name: 'Resend', logo: logoResend, className: 'h-5' },
-  { name: 'Better Auth', logo: logoBetterAuth, className: 'h-5' },
-]
+type HeroCopy = {
+  title: string
+  description: string
+  screenshotAlt: string
+  technologyStackLabel: string
+  technologyLogos: Array<{
+    id: string
+    name: string
+  }>
+}
+
+const technologyLogoAssets: Record<
+  string,
+  { logo: StaticImageData; className: string }
+> = {
+  cloudflare: { logo: logoCloudflare, className: 'h-8' },
+  neon: { logo: logoNeon, className: 'h-7' },
+  firebase: { logo: logoFirebase, className: 'h-8' },
+  resend: { logo: logoResend, className: 'h-5' },
+  'better-auth': { logo: logoBetterAuth, className: 'h-5' },
+}
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   let id = useId()
@@ -88,19 +102,19 @@ function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
   )
 }
 
-export function Hero() {
+export function Hero({ copy }: { copy: HeroCopy }) {
   return (
     <div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
             <h1 className="text-4xl font-medium tracking-tight text-gray-900">
-              Manage your money with less effort.
+              {copy.title}
             </h1>
-            <p className="mt-6 text-lg text-gray-600">
-              Miney helps you track spending, income, budgets, and assets in a
-              clean app that makes everyday finance feel simple.
-            </p>
+            <p className="mt-6 text-lg text-gray-600">{copy.description}</p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <AppStoreLink />
+            </div>
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
             <BackgroundIllustration className="absolute top-4 left-1/2 h-[1026px] w-[1026px] -translate-x-1/3 mask-[linear-gradient(to_bottom,white_20%,transparent_75%)] stroke-gray-300/70 sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
@@ -108,32 +122,40 @@ export function Hero() {
               <PhoneFrame className="mx-auto max-w-[366px]" priority>
                 <Image
                   src={heroScreenshot}
-                  alt="Miney app dashboard"
+                  alt={copy.screenshotAlt}
                   className="h-full w-full object-cover"
                   priority
                 />
               </PhoneFrame>
             </div>
           </div>
-          <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
-            <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
-              Built with a cutting-edge modern technology stack
+          <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6 h-20">
+            {/* <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
+              {copy.technologyStackLabel}
             </p>
             <ul
               role="list"
               className="mx-auto mt-8 flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-8 opacity-55 lg:mx-0 lg:justify-start"
             >
-              {technologyLogos.map(({ name, logo, className }) => (
-                <li key={name} className="flex items-center">
-                  <Image
-                    src={logo}
-                    alt={name}
-                    className={clsx('w-auto', className)}
-                    unoptimized
-                  />
-                </li>
-              ))}
-            </ul>
+              {copy.technologyLogos.map(({ id, name }) => {
+                let logoAsset = technologyLogoAssets[id]
+
+                if (!logoAsset) {
+                  return null
+                }
+
+                return (
+                  <li key={id} className="flex items-center">
+                    <Image
+                      src={logoAsset.logo}
+                      alt={name}
+                      className={clsx('w-auto', logoAsset.className)}
+                      unoptimized
+                    />
+                  </li>
+                )
+              })}
+            </ul> */}
           </div>
         </div>
       </Container>

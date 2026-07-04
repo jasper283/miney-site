@@ -22,37 +22,51 @@ import recordScreen from '@/images/record.png'
 
 const MotionScreen = motion.div
 
+type IconComponent = React.ComponentType<React.ComponentPropsWithoutRef<'svg'>>
+
+type PrimaryFeaturesCopy = {
+  ariaLabel: string
+  title: string
+  description: string
+  slideLabel: string
+  features: Array<{
+    id: string
+    name: string
+    description: string
+    screenAlt: string
+  }>
+}
+
+type PrimaryFeature = PrimaryFeaturesCopy['features'][number] & {
+  icon: IconComponent
+  screenImage: StaticImageData
+}
+
 interface CustomAnimationProps {
   isForwards: boolean
   changeCount: number
 }
 
-const features = [
-  {
-    name: 'Log expenses in seconds',
-    description:
-      'Add spending and income quickly, keep categories tidy, and see the day’s money flow without extra work.',
-    icon: DeviceUserIcon,
-    screenImage: recordScreen,
-    screenAlt: 'Miney add record screen',
-  },
-  {
-    name: 'Stay ahead of budgets',
-    description:
-      'Get clear progress and useful reminders when a category is close to its monthly limit.',
-    icon: DeviceNotificationIcon,
-    screenImage: budgetScreen,
-    screenAlt: 'Miney budget tracking screen',
-  },
-  {
-    name: 'Track assets together',
-    description:
-      'Follow cash, cards, savings, and other accounts from one calm overview.',
-    icon: DeviceTouchIcon,
-    screenImage: assetScreen,
-    screenAlt: 'Miney asset overview screen',
-  },
-]
+const primaryFeatureAssets: Record<
+  string,
+  { icon: IconComponent; screenImage: StaticImageData }
+> = {
+  records: { icon: DeviceUserIcon, screenImage: recordScreen },
+  budgets: { icon: DeviceNotificationIcon, screenImage: budgetScreen },
+  assets: { icon: DeviceTouchIcon, screenImage: assetScreen },
+}
+
+function getPrimaryFeatures(copy: PrimaryFeaturesCopy): PrimaryFeature[] {
+  return copy.features.flatMap((feature) => {
+    let assets = primaryFeatureAssets[feature.id]
+
+    if (!assets) {
+      return []
+    }
+
+    return [{ ...feature, ...assets }]
+  })
+}
 
 function DeviceUserIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -205,7 +219,7 @@ function usePrevious<T>(value: T) {
   return ref.current
 }
 
-function FeaturesDesktop() {
+function FeaturesDesktop({ features }: { features: PrimaryFeature[] }) {
   let [changeCount, setChangeCount] = useState(0)
   let [selectedIndex, setSelectedIndex] = useState(0)
   let prevIndex = usePrevious(selectedIndex)
@@ -289,7 +303,13 @@ function FeaturesDesktop() {
   )
 }
 
-function FeaturesMobile() {
+function FeaturesMobile({
+  features,
+  slideLabel,
+}: {
+  features: PrimaryFeature[]
+  slideLabel: string
+}) {
   let [activeIndex, setActiveIndex] = useState(0)
   let slideContainerRef = useRef<React.ElementRef<'div'>>(null)
   let slideRefs = useRef<Array<React.ElementRef<'div'>>>([])
@@ -372,7 +392,7 @@ function FeaturesMobile() {
               'relative h-0.5 w-4 rounded-full',
               featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500',
             )}
-            aria-label={`Go to slide ${featureIndex + 1}`}
+            aria-label={`${slideLabel} ${featureIndex + 1}`}
             onClick={() => {
               slideRefs.current[featureIndex].scrollIntoView({
                 block: 'nearest',
@@ -388,29 +408,28 @@ function FeaturesMobile() {
   )
 }
 
-export function PrimaryFeatures() {
+export function PrimaryFeatures({ copy }: { copy: PrimaryFeaturesCopy }) {
+  let features = getPrimaryFeatures(copy)
+
   return (
     <section
       id="features"
-      aria-label="Features for managing personal finance"
+      aria-label={copy.ariaLabel}
       className="bg-gray-900 py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
           <h2 className="text-3xl font-medium tracking-tight text-white">
-            Everything you need to understand your money.
+            {copy.title}
           </h2>
-          <p className="mt-2 text-lg text-gray-400">
-            Miney keeps daily tracking, budgets, and assets in one focused
-            workflow so you can see what changed and what needs attention.
-          </p>
+          <p className="mt-2 text-lg text-gray-400">{copy.description}</p>
         </div>
       </Container>
       <div className="mt-16 md:hidden">
-        <FeaturesMobile />
+        <FeaturesMobile features={features} slideLabel={copy.slideLabel} />
       </div>
       <Container className="hidden md:mt-20 md:block">
-        <FeaturesDesktop />
+        <FeaturesDesktop features={features} />
       </Container>
     </section>
   )
