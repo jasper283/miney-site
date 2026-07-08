@@ -1,8 +1,8 @@
 import { CallToAction } from '@/components/CallToAction'
+import { Faqs } from '@/components/Faqs'
 import { Hero } from '@/components/Hero'
 import { Layout } from '@/components/Layout'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
-import { Reviews } from '@/components/Reviews'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import homeCopy from '@/content/home.json'
 
@@ -12,10 +12,10 @@ export default function Home() {
       <Hero copy={homeCopy.hero} />
       <PrimaryFeatures copy={homeCopy.primaryFeatures} />
       <SecondaryFeatures copy={homeCopy.secondaryFeatures} />
-      <Reviews />
+      {/* <Reviews /> */}
       <CallToAction />
       {/* <Pricing /> */}
-      {/* <Faqs /> */}
+      <Faqs />
     </Layout>
   )
 }

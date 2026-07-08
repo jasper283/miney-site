@@ -3,53 +3,58 @@ import { Container } from '@/components/Container'
 const faqs = [
   [
     {
+      question: 'What is Miney?',
+      answer:
+        'Miney is a personal finance and expense tracker app that helps you track expenses, income, budgets, assets, and account balances in one simple place.',
+    },
+    {
       question: 'What can I track with Miney?',
       answer:
-        'Miney is built for everyday expenses, income, budgets, assets, and account balances.',
+        'You can track expenses, income, transfers, budgets, assets, debts, credit cards, and account balances. Miney is designed to give you a complete view of your personal finances.',
     },
     {
-      question: 'Can I create monthly budgets?',
+      question: 'Is Miney a free expense tracker?',
       answer:
-        'Yes. You can set category budgets and see how much is used or remaining during the month.',
-    },
-    {
-      question: 'Does Miney support recurring records?',
-      answer:
-        'Miney supports recurring income and expenses so regular money movement is easier to keep current.',
+        'Yes. Miney includes a free plan with expense tracking, budgets, assets, cloud sync, basic data export, and many everyday features. You can upgrade to Miney Pro anytime for advanced capabilities.',
     },
   ],
   [
     {
-      question: 'Can I track assets and accounts?',
+      question: 'Does Miney support budgets?',
       answer:
-        'Yes. You can follow cash, cards, savings, and other balances from one simple overview.',
+        'Yes. You can create flexible budgets with custom periods, category groups, rollover balances, and detailed budget history to better control your spending.',
     },
     {
-      question: 'Where is Miney based?',
+      question: 'Does Miney support multiple currencies?',
       answer:
-        'Miney is designed for people who want a clean, international personal finance experience.',
+        'Yes. Miney supports over 166 currencies with automatic exchange rates, making it ideal for travel, international spending, and multi-currency budgeting.',
     },
     {
-      question: 'Do I need finance experience?',
+      question: 'Can I track assets and credit cards?',
       answer:
-        'No. Miney is intentionally simple, with clear summaries and practical controls for everyday use.',
+        'Yes. Miney lets you manage cash, bank accounts, savings, investments, and credit cards, including billing dates and payment reminders.',
     },
   ],
   [
     {
-      question: 'How did you get this on the App Store?',
+      question: 'Can I sync my data across devices?',
       answer:
-        'Miney is available on the App Store for iPhone users. Android availability will be announced when it is ready.',
+        'Yes. Your transactions, budgets, and accounts can be securely synced across your devices, so your data is always up to date.',
     },
     {
-      question: 'Can I export my data?',
+      question: 'Can I export my expense data?',
       answer:
-        'Export options are part of the paid plans, making it easier to review or back up your records.',
+        'Yes. Miney Pro supports exporting your financial records, making it easy to back up your data or analyze it in spreadsheet software.',
     },
+    // {
+    //   question: 'What does Miney Pro include?',
+    //   answer:
+    //     'Miney Pro adds advanced expense tracking features, including multiple books, support for over 166 currencies, flexible budgeting, receipt photos, refunds, advanced CSV export filters, and detailed transaction tracking with discounts and taxes.'
+    // },
     {
-      question: 'Can I replace the app screenshots?',
+      question: 'Is Miney available on Android?',
       answer:
-        'Yes. The landing page keeps the template screenshot structure, so product screenshots can be swapped later.',
+        'Miney is currently available for iPhone on the App Store. The Android version is in final testing and will be released on Google Play soon.'
     },
   ],
 ]
@@ -72,7 +77,7 @@ export function Faqs() {
           <p className="mt-2 text-lg text-gray-600">
             If you have anything else you want to ask,{' '}
             <a
-              href="mailto:info@example.com"
+              href="mailto:support@miney.app"
               className="text-gray-900 underline"
             >
               reach out to us
