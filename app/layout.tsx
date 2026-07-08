@@ -1,8 +1,8 @@
+import clsx from 'clsx';
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { RootProvider } from 'fumadocs-ui/provider/next';
-import clsx from 'clsx';
 
 import './global.css';
 
@@ -14,11 +14,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Miney - Simple personal finance',
+    default: 'Miney – Expense Tracker, Budget Planner & Personal Finance App',
     template: '%s | Miney',
   },
   description:
-    'Miney is a simple personal finance app for tracking expenses, income, budgets, and assets.',
+    'Track expenses, income, budgets, assets, and multiple currencies with Miney. A clean expense tracker and budget planner designed for effortless personal finance management.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
