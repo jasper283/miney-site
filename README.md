@@ -4,6 +4,8 @@ Miney is a clean personal finance app for tracking expenses, income, budgets, as
 
 This repository contains the open-source landing page and documentation site for [Miney](https://miney.app), built to introduce the app, explain its personal finance features, and support search discovery for people looking for an expense tracker, budget planner, money manager, asset tracker, or multi-currency finance app.
 
+Download Miney on the App Store: [Miney for iPhone](https://apps.apple.com/us/app/miney/id6738577414).
+
 ## About Miney
 
 Miney helps people understand their money without turning daily finance tracking into a chore. It is designed for simple expense logging, flexible budgeting, account and asset tracking, recurring money routines, and readable monthly finance reviews.
