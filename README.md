@@ -2,7 +2,7 @@
 
 Miney is a clean personal finance app for tracking expenses, income, budgets, assets, accounts, credit cards, and multiple currencies in one simple workflow.
 
-This repository contains the open-source landing page and documentation site for [Miney](https://miney.app), built to introduce the app, explain its personal finance features, and support search discovery for people looking for an expense tracker, budget planner, money manager, asset tracker, or multi-currency finance app.
+This repository contains the public source for the landing page and documentation site for [Miney](https://miney.app), built to introduce the app, explain its personal finance features, and support search discovery for people looking for an expense tracker, budget planner, money manager, asset tracker, or multi-currency finance app.
 
 Download Miney on the App Store: [Miney for iPhone](https://apps.apple.com/us/app/miney/id6738577414).
 
@@ -119,4 +119,10 @@ Good first areas to improve:
 
 ## License
 
-This repository is being prepared for open source release. Add the final license file before publishing publicly.
+This repository is source-available for transparency and contribution purposes, but it is **not** licensed as an open-source template, starter kit, theme, or reusable website base.
+
+Parts of this site are based on a commercial Tailwind Plus template. Tailwind Plus components, templates, design assets, and derivative works are governed by the [Tailwind Plus License](https://tailwindcss.com/plus/license).
+
+You may view the source code and submit contributions for this Miney website. You may not copy, fork, redistribute, sublicense, or reuse this repository as the basis for another website, template, starter kit, theme, UI library, or commercial product unless you have the required rights and comply with the Tailwind Plus License and any other applicable terms.
+
+See [LICENSE](./LICENSE) for the full repository license notice.

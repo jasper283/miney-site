@@ -1,21 +1,29 @@
-MIT License
+Miney Site Source-Available Notice
 
-Copyright (c) 2026 Jasper Wu
+Copyright (c) 2026 Jasper Wu. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository is made publicly available for transparency and contribution
+purposes only. No open-source license is granted.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This project is based in part on a commercial Tailwind Plus template. Tailwind
+Plus components, templates, design assets, and derivative works are governed by
+the Tailwind Plus License:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+https://tailwindcss.com/plus/license
+
+You may view the source code and submit contributions for this Miney website.
+You may not copy, fork, redistribute, sublicense, publish, sell, or reuse this
+repository, in whole or in part, as the basis for another website, template,
+starter kit, theme, UI library, or commercial product unless you have the
+required rights and comply with the Tailwind Plus License and any other
+applicable terms.
+
+This notice does not grant any rights to Tailwind Plus components, templates,
+libraries, or design assets. All rights not expressly granted are reserved.
+
+THE SOURCE CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. TO THE MAXIMUM
+EXTENT PERMITTED BY LAW, THE AUTHORS AND COPYRIGHT HOLDERS SHALL NOT BE LIABLE
+FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM OR RELATED TO THIS
+REPOSITORY OR ITS USE.
