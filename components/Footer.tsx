@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container'
 import { Logomark } from '@/components/Logo'
 import { NavLinks } from '@/components/NavLinks'
+import { Code2 } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -35,6 +36,15 @@ export function Footer() {
               <span className="lg:hidden">Join newsletter</span>
             </Button>
           </form> */}
+          <a
+            href="https://github.com/jasper283/miney-site"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-gray-900"
+          >
+            <Code2 className="h-4 w-4" aria-hidden="true" />
+            GitHub
+          </a>
           <p className="mt-6 text-sm text-gray-500 md:mt-0">
             &copy; Copyright {new Date().getFullYear()}. All rights reserved.
           </p>
